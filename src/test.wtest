@@ -1,0 +1,32 @@
+import example.*
+
+describe "tests" {
+	
+	var pack = new AgregarCredito(credito = 1)
+	var linea = new Linea(numero = 9)
+	var consumo = new ConsumoInternet(mb = 100, fechaDeConsumo = new Date())
+
+	
+	test "agregarPack() agregar un pack a la lista" {
+		linea.agregarPack(pack)
+		assert.equals(1, linea.packs().size()
+		)
+	}
+	
+	test "tira mensaje de error cuando no se puede consumir un consumo" {
+		linea.agregarPack(pack)
+		assert.throwsExceptionWithMessage("no se puede consumir", {linea.consumir(consumo)})				
+	}
+	
+	test "consumo.costo() muestra el costo que tiene el consumo" {
+		assert.equals(100, consumo.costo())	
+	}
+}
+
+
+/* PUTNO 10
+ * 
+ * Para agregar un pack se debe codificar su metodo criterio() y su metodo gastar si no se rompe el polimorfismo
+ * Para agregar un consumo se debe codificar su metodo costo()
+ * 
+ * */ 
